@@ -13100,7 +13100,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="CMSC320-Final-Project">CMSC320 Final Project<a class="anchor-link" href="#CMSC320-Final-Project">&#182;</a></h1><p>Vatsal Agarwal, Varun Singhai, Raymond Zou<br></p>
+<h1 id="CMSC320-Final-Project">CMSC320 Final Project<a class="anchor-link" href="#CMSC320-Final-Project">&#182;</a></h1><h2 id="New-York-City-Airbnb-Analysis-and-Price-Prediction">New York City Airbnb Analysis and Price Prediction<a class="anchor-link" href="#New-York-City-Airbnb-Analysis-and-Price-Prediction">&#182;</a></h2><p>Vatsal Agarwal, Varun Singhai, Raymond Zou<br></p>
 
 </div>
 </div>
@@ -13110,17 +13110,27 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h2><ol>
 <li><a href="#Introduction">Introduction</a> <br></li>
-<li><a href="#data">Data Curation, Parsing, and Management</a> <br>
- 2.1 <a href="#data_imports">Imports</a> <br>
- 2.2 <a href="#loading">Loading in the Data</a> <br>
- 2.3 <a href="#tidy">Tidy Data</a> <br></li>
-<li><a href="#eda">Exploratory Data Analysis (EDA)</a> <br>
- 3.1 <a href="#eda_imports">Imports</a> <br>
- 3.2 <a href="#vis">Listing Location Visualization</a> <br>
- 3.3 <a href="#prices">Listing Prices by Borough</a> <br>
- 3.4 <a href="#reviews">Number of Reviews and Price Analysis</a> <br>
- 3.5 <a href="#neighbor">Most Popular Neighbourhoods Analysis</a> <br>
- 3.6 <a href="#eda_concl">EDA Conclusions</a> <br></li>
+<li><a href="#2">Data Curation, Parsing, and Management</a> <br>
+ 2.1 <a href="#2.1">Imports</a> <br>
+ 2.2 <a href="#2.2">Loading in the Data</a> <br>
+ 2.3 <a href="#2.3">Tidy Data</a> <br></li>
+<li><a href="#3">Exploratory Data Analysis (EDA)</a> <br>
+ 3.1 <a href="#3.1">Imports</a> <br>
+ 3.2 <a href="#3.2">Listing Location Visualization</a> <br>
+ 3.3 <a href="#3.3">Listing Prices by Borough</a> <br>
+ 3.4 <a href="#3.4">Number of Reviews and Price Analysis</a> <br>
+ 3.5 <a href="#3.5">Most Popular Neighbourhoods Analysis</a> <br>
+ 3.6 <a href="#3.6">EDA Conclusions</a> <br></li>
+<li><a href="#3">Hypothesis Testing</a> <br>
+ 4.1 <a href="#4.1">Null v. Alternative Hypothesis</a> <br>
+ 4.2 <a href="#4.2">Hypothesis Testing Conclusions</a> <br></li>
+<li><a href="#5">Machine Learning</a> <br>
+ 5.1 <a href="#5.1">Imports</a> <br>
+ 5.2 <a href="#5.2">Data Preparation</a><br>
+ 5.3 <a href="#5.3">Distribution of Listing Prices</a> <br>
+ 5.4 <a href="#5.4">Data Processing</a> <br>
+ 5.5 <a href="#5.5">Machine Learning Models</a> <br></li>
+<li><a href="#6">Conclusion</a> <br></li>
 </ol>
 
 </div>
@@ -13145,8 +13155,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=data></a></p>
-<h2 id="2.-Data-Curation,-Parsing,-and-Management">2. Data Curation, Parsing, and Management<a class="anchor-link" href="#2.-Data-Curation,-Parsing,-and-Management">&#182;</a></h2><p>The first step in the data science pipeline is obtaining data and making sure that it is in a usuable form for analysis and visualization.</p>
+<p><a id=2></a></p>
+<h2 id="2.-Data-Curation,-Parsing,-and-Management">2. Data Curation, Parsing, and Management<a class="anchor-link" href="#2.-Data-Curation,-Parsing,-and-Management">&#182;</a></h2><p>The first step in the data science pipeline is obtaining data and making sure that it is in a usuable form for analysis, visualization, and modeling.</p>
 
 </div>
 </div>
@@ -13154,7 +13164,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=data_imports></a></p>
+<p><a id=2.1></a></p>
 <h3 id="2.1-Imports">2.1 Imports<a class="anchor-link" href="#2.1-Imports">&#182;</a></h3>
 </div>
 </div>
@@ -13175,7 +13185,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For this section we will be using the pandas library so that we can put our data into a dataframe format.</p>
+<p>For this section we will be using the <code>pandas</code> library so that we can put our data into a dataframe format. The easiest way to install pandas is as part of the <a href='https://docs.continuum.io/anaconda/'>Anaconda</a> distribution.</p>
 
 </div>
 </div>
@@ -13183,7 +13193,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=loading></a></p>
+<p><a id=2.2></a></p>
 <h3 id="2.2-Loading-in-the-Data">2.2 Loading in the Data<a class="anchor-link" href="#2.2-Loading-in-the-Data">&#182;</a></h3><p>The data we will be using is the "New York City Airbnb Open Data" from 2019 which can be found <a href="https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data">here</a>. The data is downloaded as a csv file which can be imported into our pipeline as a pandas dataframe.</p>
 
 </div>
@@ -13360,14 +13370,15 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=tidy></a></p>
+<p><a id=2.3></a></p>
 <h3 id="2.3-Tidy-Data">2.3 Tidy Data<a class="anchor-link" href="#2.3-Tidy-Data">&#182;</a></h3><p>The next step is to make sure the data is in a form that is organized and easy to use. We follow the model for tidy data where:</p>
 <ol>
 <li>Each attribute (or variable) forms a column</li>
 <li>Each entity (or observation) forms a row</li>
 <li>Each type of entity (observational unit) forms a table</li>
 </ol>
-<p>To make sure our data follows the tidy model, we clean the data so that each column (attribute) has its own uniform format and units for each row. As an example we must make sure that the price for each row is in the same units (US dollars). We must also make sure each row forms an entity. In this case, each row represents an Airbnb listing and the entire table is made up of NYC listings. We also want to drop columns that we will not be using in our analysis and create any new columns based on the existing columns that we may need for our analysis.</p>
+<p>To make sure our data follows the tidy model, we clean the data so that each column (attribute) has its own uniform format and units for each row. As an example we must make sure that the price for each row is in the same units (US dollars). We must also make sure each row forms an entity. In this case, each row represents an Airbnb listing and the entire table is made up of NYC listings. We also want to drop columns that we will not be using in our analysis and create any new columns based on the existing columns that we may need for our models later on.</p>
+<p>For regression, we need to ensure that all inputs are numerical in nature. So for the latest date reviewed, we convert the date to an actual measure of time, in this case the number of days since the last review.</p>
 
 </div>
 </div>
@@ -13545,7 +13556,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=eda></a></p>
+<p><a id=3></a></p>
 <h2 id="3.-Exploratory-Data-Analysis-(EDA)">3. Exploratory Data Analysis (EDA)<a class="anchor-link" href="#3.-Exploratory-Data-Analysis-(EDA)">&#182;</a></h2><p>This section we will take a deep dive into learning how to show patterns, correlations, and visualize our data to the common eye. Creating visually appealing stastics about our data because the raw csv file helps no one and is impossible to understand. Through graphs and plots we will be able to better understand our data and get a true hollistic overview of it.</p>
 
 </div>
@@ -13554,7 +13565,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=eda_imports></a></p>
+<p><a id=3.1></a></p>
 <h3 id="3.1-Imports">3.1 Imports<a class="anchor-link" href="#3.1-Imports">&#182;</a></h3>
 </div>
 </div>
@@ -13602,7 +13613,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=vis></a></p>
+<p><a id=3.2></a></p>
 <h3 id="3.2-Listing-Location-Visualization">3.2 Listing Location Visualization<a class="anchor-link" href="#3.2-Listing-Location-Visualization">&#182;</a></h3><p>Now we will begin looking at our data, but before we do, lets look at where the Airbnb listings are located. Rather than using other means of looking at density, we will be using a heatmap over New York City and have a nice understanding of which borough in NYC has the most amount of listings.</p>
 
 </div>
@@ -13650,10 +13661,10 @@ div#notebook {
 
  
  
-<div id="e3b187fb-7f31-44b1-89c9-110fe16b966e"></div>
+<div id="e7c0a5ab-b0b0-47bb-a828-1acaa2357d7e"></div>
 <div class="output_subarea output_widget_view ">
 <script type="text/javascript">
-var element = $('#e3b187fb-7f31-44b1-89c9-110fe16b966e');
+var element = $('#e7c0a5ab-b0b0-47bb-a828-1acaa2357d7e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "33739172f78d4bb7a0f11e72c4b448ca", "version_major": 2, "version_minor": 0}
@@ -13677,7 +13688,7 @@ var element = $('#e3b187fb-7f31-44b1-89c9-110fe16b966e');
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=prices></a></p>
+<p><a id=3.3></a></p>
 <h3 id="3.3-Listing-Prices-by-Borough">3.3 Listing Prices by Borough<a class="anchor-link" href="#3.3-Listing-Prices-by-Borough">&#182;</a></h3><p>Now to begin the graphs and plots, I envision myself comparing the boroughs (Manhattan, Brooklyn, Queens, etc.) against each other. So, rather than having multiple if statements to extract the borough I want, I am simply going to split them up in their own respective dataframe using the <code>loc</code> method.</p>
 
 </div>
@@ -13757,8 +13768,8 @@ var element = $('#e3b187fb-7f31-44b1-89c9-110fe16b966e');
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see, there are two boxplots, one with outliers and one without outliers. I think it is important to show both because it shows the user that there is a very big range of pricing for each borough (which is shown in the boxplot <b>with</b> outliers. But with that said, it is also important to show the user about how the majority of the data looks, which is the boxplot graph <b>without</b> the outliers.</p>
-<p>One thing we can determine about the pricing for each borough is that the airbnb's in manhattan tend to be more expensive than their counterparts, while as the airbnb's in the bronx seem like the way to go if you want a cheaper option.</p>
+<p>As you can see, there are two boxplots, one with outliers and one without outliers. I think it is important to show both because it shows the user that there is a very big range of pricing for each borough (which is shown in the boxplot <b>with</b> outliers). But with that said, it is also important to show the user about how the majority of the data looks, which is the boxplot graph <b>without</b> the outliers.</p>
+<p>One thing we can determine about the pricing for each borough is that the Airbnb's in manhattan tend to be more expensive than their counterparts, while as the airbnb's in Bronx seem like the way to go if you want a cheaper option.</p>
 
 </div>
 </div>
@@ -13766,8 +13777,8 @@ var element = $('#e3b187fb-7f31-44b1-89c9-110fe16b966e');
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=reviews></a></p>
-<h3 id="3.4-Number-of-Reviews-and-Price-Analysis">3.4 Number of Reviews and Price Analysis<a class="anchor-link" href="#3.4-Number-of-Reviews-and-Price-Analysis">&#182;</a></h3><p>Next aspect we are going to look at is the number of reviews, and if that variable effects any of the other varaiables in the dataframe. The first thing we are going to do is take a distribution plot of the number of reviews,  which is a histogram with a density line showing it. One thing we always want to check before drawing plots and graphs is to take a look at the distribution of the variable and understand the range, skew, outliers, etc. This distribution will build us the foundation for all the other graphs and plots we draw for the variable.</p>
+<p><a id=3.4></a></p>
+<h3 id="3.4-Number-of-Reviews-and-Price-Analysis">3.4 Number of Reviews and Price Analysis<a class="anchor-link" href="#3.4-Number-of-Reviews-and-Price-Analysis">&#182;</a></h3><p>The next aspect we are going to look at is the number of reviews, and if that variable affects any of the other varaiables in the dataframe. The first thing we are going to do is take a distribution plot of the number of reviews,  which is a histogram with a density line showing it. One thing we always want to check before drawing plots and graphs is to take a look at the distribution of the variable and understand the range, skew, outliers, etc. This distribution will build us the foundation for all the other graphs and plots we draw for the variable.</p>
 
 </div>
 </div>
@@ -13829,7 +13840,7 @@ var element = $('#e3b187fb-7f31-44b1-89c9-110fe16b966e');
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Each respective borough's distribution, along with the overall's distribution plot, is a univariate distribution with a strong right skew. This means that the mean is greater than the median for the number of reviews and that most of the data leans to the right of the mode.</p>
-<p>Since we want to continue examing the number of reviews quantitative variable, lets group all the boroughs together and determine the mean price and mean number of reviews of each of them and see if we can see any patterns.</p>
+<p>Since we want to continue examing the number of reviews quantitative variable, lets group all the boroughs together and determine the mean price and mean number of reviews for each of them and see if we can notice any patterns.</p>
 
 </div>
 </div>
@@ -13839,7 +13850,7 @@ var element = $('#e3b187fb-7f31-44b1-89c9-110fe16b966e');
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a dataframe that groups the data by the borough and then calculates the mean for each of the other columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a dataframe that groups the data by borough and then calculates the mean for each of the other columns</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
@@ -13885,8 +13896,8 @@ var element = $('#e3b187fb-7f31-44b1-89c9-110fe16b966e');
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This bar graph shows us concretes the data we found from the boxplots and leads to an interesting observation regarding the relationship between the two variables. For the former, we can solidify the fact that the average price for an airbnb is the highest in Manhattan, while the cheaper airbnb's can be found in the bronx. But an interesting observation this bar graph shows is how the mean number of reviews is stagnent across all the boroughs, almost implying that the number of reviews has nothing to do with the pricing of an airbnb.</p>
-<p>In order to fully prove our observation from the bar graph above asserting that there is no correlation between price and the number of reviews, lets create a correlation matrix and a scatter plot of the two variables and examine them to draw some conclusions.</p>
+<p>This bar graph shows us concretes the data we found from the boxplots and leads to an interesting observation regarding the relationship between the two variables. For the former, we can solidify the fact that the average price for an Airbnb is the highest in Manhattan, while the cheaper airbnb's can be found in Bronx. But an interesting observation this bar graph shows is how the mean number of reviews is stagnent across all the boroughs, almost implying that the number of reviews has nothing to do with the pricing of an Airbnb.</p>
+<p>In order to fully prove our observation from the bar graph above asserting that there is no correlation between price and the number of reviews, let's create a correlation matrix and a scatter plot of the two variables and examine them to draw some conclusions.</p>
 
 </div>
 </div>
@@ -13976,8 +13987,8 @@ number_of_reviews -0.047963           1.000000
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=neighbor></a></p>
-<h3 id="3.5-Most-Popular-Neighbourhoods-Analysis">3.5 Most Popular Neighbourhoods Analysis<a class="anchor-link" href="#3.5-Most-Popular-Neighbourhoods-Analysis">&#182;</a></h3><p>Now lets say just for fun you wanted to figure out which is the most popular neighbourhood within each borough. Why? Well if you put yourself into the shows of someone trying to find a safe, affordable and nice airbnb, you would expect it to be in a neighbourhood with a high density of them, or else they won't get booked. So what this next part shows is the Top 10 most listed airbnb for each neighbourhood within each borough. Usually these types of data give the user a nice overview of what they want to see rather than getting too confused with the underlying details.</p>
+<p><a id=3.5></a></p>
+<h3 id="3.5-Most-Popular-Neighbourhoods-Analysis">3.5 Most Popular Neighbourhoods Analysis<a class="anchor-link" href="#3.5-Most-Popular-Neighbourhoods-Analysis">&#182;</a></h3><p>Now lets say just for fun you wanted to figure out which is the most popular neighbourhood within each borough. Why? Well if you put yourself into the shoes of someone trying to find a safe, affordable and nice Airbnb, you would expect it to be in a neighbourhood with a high density of them. So this next part shows the Top 10 most listed Airbnb's for each neighbourhood within each borough.</p>
 
 </div>
 </div>
@@ -14094,25 +14105,1115 @@ number_of_reviews -0.047963           1.000000
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id=eda_concl></a></p>
-<h3 id="3.6-Exploratory-Data-Analysis-Conclusions">3.6 Exploratory Data Analysis Conclusions<a class="anchor-link" href="#3.6-Exploratory-Data-Analysis-Conclusions">&#182;</a></h3><p>Data visualization and analysis allows the user/reader to understand the data in a simple and insightful way. Through our analysis, we are able to show the reader a visualization of where all the listings are in NYC and allow them to interactivelly determine where high density and low density spots are in terms for listings. We furthermore took a deep dive into one variable of the dataframe and were able to assert, through bar graphs, scatter plots, density plots, and correlation matrices, that there is no correlation between the number of reviews and the price. We finally created a visually appealing matrix of pies to allow the reader to see which neighbourhoods are booked the most and let them amalgamate opinions themselves.</p>
+<p><a id=3.6></a></p>
+<h3 id="3.6-Exploratory-Data-Analysis-Conclusions">3.6 Exploratory Data Analysis Conclusions<a class="anchor-link" href="#3.6-Exploratory-Data-Analysis-Conclusions">&#182;</a></h3><p>Data visualization and analysis allows the user/reader to understand the data in a simple and insightful way. Through our analysis, we are able to show the reader a visualization of where all the listings are in NYC and allow them to interactively determine where high density and low density spots of listings are. Furthermore, we took a deep dive into one variable of the dataframe and were able to assert through bar graphs, scatter plots, density plots, and correlation matrices, that there is no correlation between the number of reviews and the price. We finally created a visually appealing matrix of pies to allow the reader to see which neighbourhoods are booked the most and better inform their decisions and opinions.</p>
 <p>Through data visualization, we try to abstract the code and make the data as easy to understand as possible. And this can be done through visually appealing plots and graphs. If you are using matrices or math to describe your conclusion, be sure to thoroughly describe what all the variables mean and the significance of them.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id=4></a></p>
+<h2 id="4.-Hypothesis-Testing">4. Hypothesis Testing<a class="anchor-link" href="#4.-Hypothesis-Testing">&#182;</a></h2><p>As we can see in this dataset, Airbnb locations are distributed throughout different boroughs. An interesting comparison that we could test is whether the price in one location is greater than another location. Specifically, whether the price of a location in Brooklyn is higher on average than in Manhattan.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id=4.1></a></p>
+<h3 id="4.1-Null-v.-Alternative-Hypothesis">4.1 Null v. Alternative Hypothesis<a class="anchor-link" href="#4.1-Null-v.-Alternative-Hypothesis">&#182;</a></h3><p>So to state the null hypothesis, we expect that the price in one borough, should be the same as the price in another borough: the borough the listing is located in should not affect its price. Our alternative hypothesis would be that in fact, the prices are different based on the borough it is located in.</p>
+<p>First let's extract the data from Brooklyn and the Manhattan areas.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">brooklyn_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Brooklyn&#39;</span><span class="p">]</span>
+<span class="n">manhattan_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Manhattan&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can now randomly sample 30 locations from each neighborhood group.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">brooklyn_sample</span> <span class="o">=</span> <span class="n">brooklyn_data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">manhattan_sample</span> <span class="o">=</span> <span class="n">manhattan_data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's extract the data for each neighborhood group into a single table. First, we need to get the mean and standard deviation of each sample.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">brooklyn_sample_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">brooklyn_sample</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="n">manhattan_sample_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">manhattan_sample</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Brooklyn: Mean: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">brooklyn_sample_mean</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Manhattan: Mean: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">manhattan_sample_mean</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Brooklyn: Mean: 138.23333333333332
+Manhattan: Mean: 177.43333333333334
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now define a random variable $Y = \bar{X_{m}} - \bar{X_{b}}$, where m represents Manhattan and b represents Brooklyn. With assumption that the prices are the same, our expected value for the difference is 0, while the variance is the sum of the variances.</p>
+<p>We thus need to get an estimate of average price for both neighbourhood groups for an approximation. We can do this by assuming that all observations from this experiment can be treated as i.i.d draws. Thus we would estimate the mean and variance of $Y$ as shown below.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">approx_y_bar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">brooklyn_sample</span><span class="p">,</span> <span class="n">manhattan_sample</span><span class="p">])[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="n">approx_y_var</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">brooklyn_sample</span><span class="p">,</span> <span class="n">manhattan_sample</span><span class="p">])[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Approx: Mean: </span><span class="si">{}</span><span class="s1">, Variance: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">approx_y_bar</span><span class="p">,</span> <span class="n">approx_y_var</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Approx: Mean: 157.83333333333334, Variance: 16699.305555555555
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The estimate $\hat{y}$ based on the data we recorded is approximately 1.967. Thus we can now use CLT approximation to determine $P(Y \neq \hat{y})$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span> 
+
+<span class="n">mu</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">approx_y_var</span><span class="p">)</span>
+
+<span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">)</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mf">1.967</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[46]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.5060722333113598</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id=4.2></a></p>
+<h3 id="4.2-Hypothesis-Testing-Conclusions">4.2 Hypothesis Testing Conclusions<a class="anchor-link" href="#4.2-Hypothesis-Testing-Conclusions">&#182;</a></h3><p>It can be seen that we fail to reject the hypothesis that the prices are the same, since the probability we computed (.506) is greater than 0.05, which is the standard alpha value.</p>
+<p>We can plot the normal distribution based on our mean and standard deviation to validate this. The plot below shows that this makes sense as the standard deviation is quite large.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">sigma</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;coral&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[47]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&lt;matplotlib.lines.Line2D at 0x294291d8be0&gt;]</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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N3LHHXcA8K1vfYvly5dTUVFBRkYGly5dYsyYMWRlZTF48GCP1VVSUsK6deuwWq2EhYXxyiuvEB0d7fX9dbO8vDzeeOMNWlpa+P73v8+iRYvcvs62XnvtNfbs2QOoD+p6/vnnWblyJSUlJQQHBwPw05/+lJkzZ1JYWMi6detoampizpw5LF++3G11LV68mJqaGscz619++WXOnTvX6b7yVF0ffvgh77//vmP4woULpKam0tDQ4LX9dfXqVR5//HHefPNNhg8f3uU6y8rKyMzMpL6+nri4ONasWYNWq+3yfeo0ZQC4cuWKsnLlSmXSpEnKli1bHOPXrFmjvPXWW4qiKMru3buVZ599VlEURfntb3+r/PznP1cURVEOHjyoLFiwQFEURdmzZ4+yZMkSpbW1VTl16pQyc+ZMxWq1urTW1tZW5Xvf+57y0UcfKYqiKG+//bby5ptvdpivq9pd7eWXX1by8vI6jH/qqaeUjz/+WFEURXnttdeUDRs2eLSub3/720pZWZmiKIry4YcfKj/+8Y8VRfH+/mqrsrJS+fa3v63U1tYq9fX1SkpKivLVV1+5fb12f/vb35THHntMaWpqUpqbm5X09HRl3759SnJysmI2m9vN29DQoCQkJCjnzp1TrFar8sQTTyj79+93S102m0158MEH2713utpXnqyrrePHjyszZ85ULl265LX99fnnnyvJycnKhAkTlPPnz99ynXPnzlUOHTqkKIqirFy5Utm+fbuiKF2/T501IJqY/vznPzN69Gj+4z/+o934/fv3Ox6ElJyczCeffILVamX//v3MmzcPgGnTplFTU0NFRQV//etfSUpKIjAwkDFjxhAVFcWhQ4dcWusf/vAHgoODHXUdOXKEzz77jJSUFH784x9z8eLFW9buakeOHGH37t2kpKTw3HPPcfnyZaxWK0VFRSQmJgKQlpZGQUGBx+pqbm7m2WefJSYmBoDx48c79ou391dbhYWFTJ8+nbCwMEJCQkhMTHTsJ08wGAysWLGCoKAgdDod48aNo6KigoqKCl588UVSUlLYsmULNpuNw4cPM2rUKEaMGIFWqyUlJcVttZ46dQqAJ554gnnz5vH+++93ua88WVdb//Vf/8Xy5csJDg722v7Kyclh9erVGI1GgC7XWV5eTmNjI5MnTwZuvB9v9T511oAIiPnz5/PUU0+h0WjajbdYLI5mBq1WS2hoKDU1Ne3Gg/pGq6ysxGKxOP5Ybce7SmtrK2+++Sb/+Z//6Rg3ZMgQFi9eTF5eHgkJCY5Dyq5qdzWDwcBPfvITPvroI6Kionj55Zepra0lNDTU0TxgMBgwm80eqysoKIjU1FRAvQ/Xa6+9xsMPPwx4f3+1dfP/I6PR6NhPnnD33Xc7PjTOnDnDnj17eOihh5g+fTqvvPIKOTk5FBcXs2vXLo/WeuXKFb75zW/y+uuv87vf/Y7f//73VFRUdLp+b+zDwsJCGhsbmTNnDtXV1V7bX2vXriUuLs4x3NU6O/u8MpvNt3yfOsuvzkHs2bOHdevWtRs3duxYfve73zm1vKIoBAYGoihKu5v+2cfbbLZOx7uqxk8//ZTRo0czfvx4x7SXX37Z8ft3v/tdNm7cSF1dXZe195Yz++6HP/whM2fO5Pnnn+9wU8SubpLozrqam5tZsWIFLS0t/OhHPwI8t7+c0dn/F2/cTPKrr77iRz/6Ec8//zxjx47l9ddfd0xbvHgxubm5JCYmeqzWKVOmMGXKFMfwo48+yrp161i6dGmH9XtjH/7+9793tDaMGDHC6/vLrqt90dX4zmrqaY1+FRBz5sxhzpw5Ts9vNBqprq4mMjKSlpYW6uvrCQsLIyIiAovFwsiRIwGorq7GaDQSGRmJxWJxLG8f76oa//SnP5GUlOQYttlsvPXWWx2OfjQaTZe191ZnddXV1fG73/2OH/zgB4D6H0+j0RAeHk5dXR2tra1oNBqqqqoc+8ETdQHU19ezdOlSwsLCeOONN9DpdB7dX86IjIykuLjYMdx2P3lKSUkJP/vZz3jxxReZO3cux44d48yZM45mB0VR0Gq1REZGUlVV5ZFai4uLsVqtfPOb33TUEB0d3en6PVkXqM2XRUVF/OpXvwLwif1l19U6bx5v/1y61fvUWQOiiakrCQkJ5ObmApCfn09cXBw6nY6EhARMJhOg/mfW6/UMGzaM+Ph48vLyaG1t5ezZs5w5c4aJEye6rJ7PP/+83SFlYGAgf/zjH9m7dy8Aubm53H///YSEhHRZuyuFhITw29/+li+++AKA999/n5kzZ6LT6YiLiyM/P99RV3x8PND1PnW1jIwMRo0axebNmwkKCgK8v79uNmPGDA4cOEBNTQ0NDQ3s27fPsZ884eLFizz99NNkZWUxd+5cQP2Ae+WVVxznknbu3MnMmTO5//77OX36NGfPnqW1tZWPP/7YbbXW1dWxYcMGmpqauHr1Krt37+bXv/51p/vKk3WBGgijR48mJCQE8I39ZdfVOqOjo9Hr9ZSUlABgMpmIj4+/5fvUWQPqdt+/+c1vABzdXL/++mtWrFjB+fPnGTJkCFlZWQwfPpympiZWrVpFaWkpQUFB/PKXv2TChAmObq6ffPIJACtXruTBBx90WX33338/Bw8eRK/XO8Z99dVX/PznP6euro7w8HA2bNhAVFRUl7W7WnFxMWvXrqWxsZHRo0ezYcMGhgwZQnl5OStWrODSpUtERUXx6quvctttt3mkrqNHj/LII49w1113OdpXjUYj27Zt8/r+ulleXh5vvfUWVquVRx99lCVLlrh9nXa//OUv+cMf/uA4EgZ4/PHHsdlsbN++nZaWFmbNmsVzzz0HwIEDBxxdKBMSEli5cqXbmk02b97M3r17sdlsLFy4kO9///td7itP1pWfn88f//hHNm3a5Bi3fft2r+6v73znO7z33nsMHz68y3V++eWXvPTSS1y9epUJEyawbt06goKCunyfOmtABYQQQgjnDegmJiGEEF2TgBBCCNEpCQghhBCdkoAQQgjRKQkIIYQQnZKAEEII0SkJCCGEEJ2SgBBCCNGp/x9gLoadKWYC1wAAAABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id=5></a></p>
+<h2 id="5.-Machine-Learning:-Can-we-predict-the-price-based-on-the-given-data?">5. Machine Learning: Can we predict the price based on the given data?<a class="anchor-link" href="#5.-Machine-Learning:-Can-we-predict-the-price-based-on-the-given-data?">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id=5.1></a></p>
+<h3 id="5.1-Imports">5.1 Imports<a class="anchor-link" href="#5.1-Imports">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn</span> 
+
+<span class="c1"># Data Prep </span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">FeatureUnion</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+
+<span class="c1"># Text Extraction for Name </span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">,</span> <span class="n">HashingVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+
+<span class="c1"># ML Models </span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">ElasticNet</span><span class="p">,</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span> 
+
+<span class="c1"># Metrics </span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>sklearn</code> is the main library we will use for machine learning. It is a very popular Python library that provides efficient tools for machine learning and analysis. Below is how to download the library.</p>
+<ol>
+<li><a href='https://scikit-learn.org/stable/'>scikit-learn</a> <ul>
+<li>pip install -U scikit-learn</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id=5.2></a></p>
+<h3 id="5.2-Data-Preparation">5.2 Data Preparation<a class="anchor-link" href="#5.2-Data-Preparation">&#182;</a></h3><p>The goal is to determine the price of an Airbnb listing based on the given data. In <a href="#2">Section 2</a> we removed the ids as they contain no useful information about the location and we also removed the host's name since there may be added bias that is not relevant to the problem.</p>
+<p>We continue to include the name information to see if we can apply feature extraction methods and we removed any of the rows that are missing this information also in <a href="#2">Section 2</a>. However they did not prove to be too useful as you can see later.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_data</span> <span class="o">=</span> <span class="n">data</span>
+<span class="n">ml_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[25]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>neighbourhood_group</th>
+      <th>neighbourhood</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>room_type</th>
+      <th>price</th>
+      <th>minimum_nights</th>
+      <th>number_of_reviews</th>
+      <th>reviews_per_month</th>
+      <th>calculated_host_listings_count</th>
+      <th>availability_365</th>
+      <th>days_since_last_review</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Clean &amp; quiet apt home by the park</td>
+      <td>Brooklyn</td>
+      <td>Kensington</td>
+      <td>40.64749</td>
+      <td>-73.97237</td>
+      <td>Private room</td>
+      <td>149</td>
+      <td>1</td>
+      <td>9</td>
+      <td>0.21</td>
+      <td>6</td>
+      <td>365</td>
+      <td>576.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Skylit Midtown Castle</td>
+      <td>Manhattan</td>
+      <td>Midtown</td>
+      <td>40.75362</td>
+      <td>-73.98377</td>
+      <td>Entire home/apt</td>
+      <td>225</td>
+      <td>1</td>
+      <td>45</td>
+      <td>0.38</td>
+      <td>2</td>
+      <td>355</td>
+      <td>362.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>THE VILLAGE OF HARLEM....NEW YORK !</td>
+      <td>Manhattan</td>
+      <td>Harlem</td>
+      <td>40.80902</td>
+      <td>-73.94190</td>
+      <td>Private room</td>
+      <td>150</td>
+      <td>3</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>365</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Cozy Entire Floor of Brownstone</td>
+      <td>Brooklyn</td>
+      <td>Clinton Hill</td>
+      <td>40.68514</td>
+      <td>-73.95976</td>
+      <td>Entire home/apt</td>
+      <td>89</td>
+      <td>1</td>
+      <td>270</td>
+      <td>4.64</td>
+      <td>1</td>
+      <td>194</td>
+      <td>317.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Entire Apt: Spacious Studio/Loft by central park</td>
+      <td>Manhattan</td>
+      <td>East Harlem</td>
+      <td>40.79851</td>
+      <td>-73.94399</td>
+      <td>Entire home/apt</td>
+      <td>80</td>
+      <td>10</td>
+      <td>9</td>
+      <td>0.10</td>
+      <td>1</td>
+      <td>0</td>
+      <td>545.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id=5.3></a></p>
+<h3 id="5.3-Distribution-of-Listing-Prices">5.3 Distribution of Listing Prices<a class="anchor-link" href="#5.3-Distribution-of-Listing-Prices">&#182;</a></h3><p>For regression, there is a central assumption that the attribute being regressed has a normal distribution. Let's see if that is the case, by plotting the distribution of prices.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot distribution of price </span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">ml_data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Price&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Text(0.5, 1.0, &#39;Distribution of Price&#39;)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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7733PPN7XUvefvttEhISiIyMxGAwsH79eoKCgq7r19jlcuF2u2lubsbpdOJ0OtHr9dfda5ybm8vy5cs9s0fs27ev317Xvtbu9wGhNhlhx6SC3zS33Xab55fmyy+/ZOfOnWg0GtX6+jLJ4rVq2bJlLFq0iCFD2icy688JJK81R48exeVy8atf/YqkpCS2bdvW4+/w9fIah4SE8NhjjzFlyhQmTZpEdHQ0BoPhunuNV61aRVxcnGe5P1/Xvtbu9wHhazLCb6JDhw7xi1/8gscff5xvfetbqvX1xySL14LXXnuNqKgo7r77bk9bf04gea1xuVwUFRXx1FNPsX37dvbt28fx48ev69d4//79/OUvf+Hvf/8777//Plqtlg8//PC6fY079PT6Xc3fb7//TmpfkxF+05SWlrJgwQKeeOIJpk6dyt69e70uSHXU15dJFq9FBQUF1NbWkpSUxJkzZzh//jwajabfJpC81tx0003cfffdhIWFAfDjH/8Ym82GTqfzrHO9vcYffPABd999Nzfe2D4df3JyMps3b75uX+MOXV+/y3ld+1r7tRufV4mvyQi/SU6cOMH8+fPJzs5m6tSpANx555188cUXnqGJN998E7PZ3KdJFq9FW7Zs4c0338RqtbJgwQJ+9KMfsXr16n6bQPJac//99/PBBx9w9uxZXC4X77//PvHx8df1axwTE8OePXs4f/48iqLw7rvv8v3vf/+6fY079Oe/3b7WLnMxoT4Z4TfRypUr+ctf/uKZLh3g4Ycf5tvf/jarV6+mtbWVSZMmsWTJEjQazSVPsnite/3119m7dy9PP/10v00geS3asWMH//d//4fD4eCHP/whS5cu5eOPP76uX+Pf//73vP766xgMBkaPHs3y5cv54osvrsvX+Ec/+hGvvPIKw4cPp6ioqF9e177WLgEhhBBCld8PMQkhhFAnASGEEEKVBIQQQghVEhBCCCFUSUAIIYRQJQEhxBX07LPPeu4/F+KbRm5zFUIIocrvp9oQoi8+/vhjsrOzGTZsGEeOHCEwMJCnn36aTZs2cfr0aY4fP859993HqVOnuO2225gzZw6ffvopK1eupLm5GYPBwOOPP87dd99NZWUlq1at4vTp07hcLmbPns2MGTMGukQhJCCE6Kvy8nIWL15MXFwcr776Kunp6dx+++20tLTw1ltvAXi+wMjhcDB//nxWrlzJfffdR3l5OUuWLOEvf/kLCxYsICsri1GjRtHY2MhDDz3Erbfe6pmZV4iBIgEhRB/FxMR4pmf+yU9+wu9+9ztMJhPjx4/vtu7BgwfRarXcd999AMTGxpKfn8/hw4c5duwYTzzxhGfdlpYWPv/8cwkIMeAkIIToo84zqHbQarUEBwerrtt16uWDBw+iKAqDBw/GarV62uvq6hg8eHD/H7AQl0juYhKij/bv38/+/fsB2L59O+PGjfN8aVFXI0eORKPR8OGHHwLw2Wef8Z//+Z985zvfITAw0BMQJ06cYNq0aZSXl1+dIoS4CDmDEKKPbrrpJp555hmqqqoICwsjKyuL559/XnXdgIAAnnvuOZ566imysrIwGAw899xzBAQEsHHjRlatWsUf/vAHnE4njz32mOowlRBXm9zmKkQffPzxxzz55JO8+eabA30oQlwxMsQkhBBClZxBCCGEUCVnEEIIIVRJQAghhFAlASGEEEKVBIQQQghVEhBCCCFUSUAIIYRQ9f8B5eAb/+/qpPUAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see that the distribution is skewed positively. This is problematic for our regression, so we can aim to solve this problem by performing the log operation to obtain a normal distribution. Additionally, since the log operation is defined at 0, we add 1 to our price prior to performing the log, so that we avoid any <code>NaN</code> errors.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate the log price </span>
+<span class="n">ml_data</span><span class="p">[</span><span class="s1">&#39;log_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">ml_data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot the new distribution </span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">ml_data</span><span class="p">[</span><span class="s1">&#39;log_price&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Log Price&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Text(0.5, 1.0, &#39;Distribution of Log Price&#39;)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXYAAAEXCAYAAAC59m+aAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAADh0RVh0U29mdHdhcmUAbWF0cGxvdGxpYiB2ZXJzaW9uMy4xLjMsIGh0dHA6Ly9tYXRwbG90bGliLm9yZy+AADFEAAAgAElEQVR4nO3deXxU9b3/8deZLZPJvofFhH0RAgi1LAIqKigSQaSKcqFeKxZbLy3eh5ZrebhSt1pxq/6q13ptBZe6gLgAKq5AUeICQcJOAiGZLJN9JrOe3x8hIyEJSWAmZ2byeT4eeehZ5sznMMk733zPOd+voqqqihBCiIih07oAIYQQgSXBLoQQEUaCXQghIowEuxBCRBgJdiGEiDAS7EIIEWEk2MVpHTt2jOHDhzN79mxmz55Nbm4u8+fP54MPPvDv8+STT7J27drTHueZZ57h448/bnPbya8fOnQoNputSzXu3LmTu+++G4Bdu3axdOnSLr3+THi9Xm699VZmzJjBK6+80mLb008/zf333x+U992+fTujRo1i9uzZzJkzh9mzZzN37lw2b97c5v6vvvoqzz//fFBqEaHLoHUBIvSZzWbWrVvnXy4uLubGG29Er9czY8YMfve733V4jO3btzNo0KA2t3Xm9adz4MABrFYrADk5OTz11FNndbzOsFqtfPXVV3z//ffo9fqgv9/JsrKyWnweBQUFXH/99XzyySckJye32Pf666/v1tpEaJBgF13Wp08fli5dyosvvsiMGTNYvnw5gwcP5le/+hVPPfUUH330EUajkaSkJB566CE++ugj8vPzefTRR9Hr9XzyySdUV1dz9OhRLrroIiorK/2vB3jiiSfYtWsXPp+P3//+91x88cW8/fbbbNy4kb/97W8A/uV7772Xp556irq6Ov7nf/6HOXPm8MADD/Dee+9RV1fHfffdR0FBAYqiMGXKFG6//XYMBgM5OTnccsstbNmyhbKyMm6++WZuuOGGVue6Y8cOHn30URwOB0ajkd///veMHTuWm2++GY/Hw9y5c3n66afJysrq1L9dW8ebOnUqXq+XRx99lM2bNxMXF8eoUaM4ePAg//znPzs85rBhwzCbzRQXF7N69Wq+//57ysrKGDp0KNnZ2VRVVXH33Xdz+PBh7r77bmw2GzqdjltvvZWZM2ditVq5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67JCQkS22E8euMxisfgHLot0aWlpLF++HJPJhNFoZODAgRw/flzrsrpNdXU1q1atYsmSJVqX0q0++ugjZs6cSWZmJkajkVWrVjF69Gitywo6r9eLz+fD4XDg8XjweDxERcnQ0BChXTFtDVzW2YHJwtngwYP9o2weOXKEDz/8kAsvvFDjqrrP3XffzbJly4iPj9e6lG5VWFiI1+tlyZIlzJ49mzVr1pCQEG4DaHVdbGwsv/vd77jiiiu48MIL6dOnD2PHjtW6rJAQkcF+NgOTRYL9+/dz0003ceedd9KvXz+ty+kW//rXv+jVqxcTJ07UupRu5/V62bZtGw8++CCvv/46O3fu5J133tG6rKArKCjgrbfe4tNPP+XLL79Ep9Px4osval1WSIjIYD91YLJTBy6LZHl5edx4443893//N1dffbXW5XSbDz74gC1btjB79myeeuopNm/ezIMPPqh1Wd0iNTWViRMnkpycjNls5tJLL20xtHak+uqrr5g4cSIpKSmYTCbmzp3L119/rXVZISEig72jgcsiVUlJCb/97W957LHHuPLKK7Uup1u99NJLvPfee6xbt46lS5cybdo07rrrLq3L6hYXX3wxX331FbW1tXi9Xr788ktGjBihdVlBN2zYMLZu3YrdbkdVVTZv3kxOTo7WZYWEiJyYNCMjg2XLlrFo0SL/wGWjRo3Suqyge/HFF3E6nTz88MP+dfPnz+f666/XsCoRbKNHj+bmm2/mhhtuwO12c8EFF3DNNddoXVbQTZ48mR9//JG5c+diNBrJycnhlltu0bqskCCDgAkhRISJyK4YIYToySTYhRAiwkiwCyFEhJFgF0KICCPBLoQQEUaCXYS17du3M2vWLM3e32q1Mn/+fM3eX4i2SLALcRYyMjJ47bXXtC5DiBYi8gEl0fPU1dVx3333UVBQgKIoTJkyhdtvvx2DwcDnn3/OY489hk6nY/jw4WzdupU1a9bQt2/fdo+3cOFCzj33XPLy8qiqqmL27NksXbqUY8eOsWDBAgYOHEhxcTEPP/wwN910E9999x0ej4c///nPfPbZZ+j1es477zzuueceTCYTzz33HJs2bcLn89GnTx/uueceMjIyuvFfSPQk0mIXEWHlypUkJiayfv163nrrLfbu3cvf//53qqqquPPOO/nzn//MunXrGD9+fKdH+jx8+DCvvvoq77zzDh988AGffvopAKWlpfzmN79h48aNLUYRXbNmDbt372bdunW89957NDQ08MEHH7B27Vr27dvHv/71L9atW8eFF17IihUrgvLvIARIi11EiC+++IJXX30VRVEwmUzMnz+fl19+mf79+zNw4ECGDRsGwNVXX93pGYauu+46jEYjRqORyy+/nK+++orBgwdjMBj8wyOfbOvWrcyePRuz2QzAE088AcDvfvc7du3a5X/Mv3kMcSGCRYJdRIRTh2r2+Xx4PB70ej2njpqh03XuD1WD4acfD1VV/a8zmUwttrW1P0BFRQU+nw+fz+cfywXA5XJRU1PTuRMT4gxIV4yICJMnT+aVV15BVVVcLhdvvPEGkyZNYuzYsRw5coSCggIANm7cSG1tbafG53/33Xfx+XzU1NTw4YcfMm3atNPuP3HiRN577z1cLhc+n497772X999/n8mTJ/Pmm29SX18PwJNPPsmdd9559ictRDukxS4iwooVK1i5ciW5ubm43W6mTJnCkiVLMJlMPP744/zhD39Ap9MxcuRIDAYD0dHRHR6zsbGRefPm0dDQwA033MDEiRM5duxYu/vPnz+f4uJi5s6di6qq/PznP2fhwoXodDqsVivXXnstiqLQq1evFiNwChFoMrqjiGj19fU8++yz/Nd//RfR0dHs3r2bX//613z55ZenbbUvXLiQBQsWcPnll3djtUIEhrTYRUSLjY3FaDQyb948DAYDBoOBJ554gu3bt/PQQw+1+Zrx48d3c5VCBJa02IUQIsLIxVMhhIgwEuxCCBFhJNiFECLCSLALIUSEkWAXQogII8EuhBAR5v8DJWzRApN94GEAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It can be seen that this feature has a much more normal distribution and thus is ready for regression.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id=5.4></a></p>
+<h3 id="5.4-Data-Processing">5.4 Data Processing<a class="anchor-link" href="#5.4-Data-Processing">&#182;</a></h3><p>In this section we want to process our data which includes steps like splitting the data into a training and testing set so that we can fit a model to our data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The next thing we want to do is split the data into X and y. Remember that the y is now the log of the price not the price itself.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">ml_data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;log_price&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">ml_data</span><span class="p">[[</span><span class="s1">&#39;log_price&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to obtain features for the names, we apply the <a href='https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html'>TfIdf</a> vectorizer on the <code>name</code> column and then apply <a href='https://towardsdatascience.com/pca-using-python-scikit-learn-e653f8989e60'>PCA</a> to reduce the dimensions. This gets us a word frequency vector, and by applying PCA the goal would be to obtain the most important features that capture the variance of the data.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Obtain feature vectors </span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="n">namesVect</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+
+<span class="c1"># Scale the data before PCA </span>
+<span class="n">scale</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">namesVect</span> <span class="o">=</span> <span class="n">scale</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">namesVect</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply PCA </span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">namesVect_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">namesVect</span><span class="p">)</span>
+<span class="n">namesVect_pca</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[-0.00911691,  0.01405955, -0.01750134, ..., -0.02486284,
+         0.01572685,  0.04875125],
+       [-0.00502632, -0.00240731,  0.00278199, ..., -0.00306455,
+        -0.00447231,  0.00649933],
+       [-0.02231244,  0.00381613, -0.03143416, ..., -0.08767689,
+         0.04741042, -0.02354614],
+       ...,
+       [-0.01043021, -0.01288023, -0.02616375, ..., -0.02248282,
+        -0.00799146, -0.02000944],
+       [-0.00822665, -0.07016098, -0.02075503, ...,  0.0397836 ,
+        -0.0700644 ,  0.03967417],
+       [-0.02734382,  0.00422227, -0.03565706, ..., -0.04420132,
+         0.0062958 , -0.05232408]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[31]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([0.00079935, 0.00063603, 0.00063066, 0.00062003, 0.00061617,
+       0.00061499, 0.00061053, 0.00060859, 0.00059386, 0.00055311])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Looking at the PCA explained variance ratio, we can examine how much of the variance each of the components captures. It can be seen that since so little the variance is captured in the first 10 components, this kind of analysis will not provide to be too useful in predicting price. Therefore, we do not include this in our model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Next, we split the data into training and testing with 80% of the data in the training set and 20% of it in the testing set.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now build a <a href='https://scikit-learn.org/stable/modules/compose.html'>pipeline</a> for processing our data.</p>
+<p>The pipeline consists of first selecting the relevant columns of the data that we want to feed into our model. We then scale our inputs for numerical data nad then perform imputation by replacing the missing values with the mean. For categorical data, we impute using the most common data and then encode our values into numerical data that can be passed into the regression model using <a href='https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html'>one-hot encoding</a>. We can then combine all our data from these different pipelines using <code>sklearn's</code> <a href='https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.FeatureUnion.html'>FeatureUnion</a> class.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Transformation will select numerical or categorical columns automatically </span>
+
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="kn">import</span> <span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span>
+
+<span class="c1"># Create a class to select numerical or categorical columns </span>
+<span class="k">class</span> <span class="nc">DataFrameSelector</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">TransformerMixin</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute_names</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attribute_names</span> <span class="o">=</span> <span class="n">attribute_names</span>
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">X</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">attribute_names</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Select the relevant numerical columns </span>
+<span class="n">num_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="s1">&#39;minimum_nights&#39;</span><span class="p">,</span> <span class="s1">&#39;number_of_reviews&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;reviews_per_month&#39;</span><span class="p">,</span> <span class="s1">&#39;calculated_host_listings_count&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;availability_365&#39;</span><span class="p">,</span> <span class="s1">&#39;days_since_last_review&#39;</span><span class="p">]</span>
+            
+<span class="c1"># Select relevant categorical columns </span>
+<span class="n">cat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;neighbourhood_group&#39;</span><span class="p">,</span> <span class="s1">&#39;room_type&#39;</span><span class="p">]</span>
+
+<span class="c1"># Pipeline for handling numerical data: select, impute, scale </span>
+<span class="n">num_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;selector&#39;</span><span class="p">,</span> <span class="n">DataFrameSelector</span><span class="p">(</span><span class="n">num_cols</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;imputer&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">())</span>
+    <span class="p">])</span>
+
+<span class="c1"># Pipeline for handling categorical data: select, impute, encode </span>
+<span class="n">cat_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="p">(</span><span class="s1">&#39;selector&#39;</span><span class="p">,</span> <span class="n">DataFrameSelector</span><span class="p">(</span><span class="n">cat_cols</span><span class="p">)),</span> 
+        <span class="p">(</span><span class="s1">&#39;imputer&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;most_frequent&#39;</span><span class="p">)),</span>
+        <span class="p">(</span><span class="s1">&#39;one-hot&#39;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">())</span>
+    <span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Combine pipelines to get final pipeline for all data </span>
+<span class="n">full_pipeline</span> <span class="o">=</span> <span class="n">FeatureUnion</span><span class="p">(</span><span class="n">transformer_list</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;num_pipeline&quot;</span><span class="p">,</span> <span class="n">num_pipeline</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;cat_pipeline&quot;</span><span class="p">,</span> <span class="n">cat_pipeline</span><span class="p">),</span>
+    <span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, we use the pipeline to fit to and transform the training data, and then transform the test data. It is very important that we only transform the test data and not fit on it. This is so the test data does not leak into the training data and we maintain the test set as a viable evaluation of our model.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train_prepared</span> <span class="o">=</span> <span class="n">full_pipeline</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_train_prepared</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(39103, 16)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>X_test_prepared = full_pipeline.transform(X_test)
+X_test_prepared.shape</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_test_prepared</span> <span class="o">=</span> <span class="n">full_pipeline</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">X_test_prepared</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(9776, 16)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now have our processed data and are ready to fit a model to our data! There are a variety of different regression models, but we will specifically look at linear models such as Linear Regression. Additionally, we will look into using different variations that add regularization such as Ridge and Lasso as well as ElasticNet.</p>
+<p>If you would like to learn more about these kinds of models, here are a few links to look at:</p>
+<ul>
+<li><a href='https://www.datacamp.com/community/tutorials/tutorial-ridge-lasso-elastic-net'>Datacamp Tutorial on Ridge, Lasso and Elastic-Net</a> </li>
+<li><a href='https://towardsdatascience.com/bias-variance-and-regularization-in-linear-regression-lasso-ridge-and-elastic-net-8bf81991d0c5'>Towards Data Science Article about Regularization for Linear Regression</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id=5.5></a></p>
+<h3 id="5.5-Machine-Learning-Models">5.5 Machine Learning Models<a class="anchor-link" href="#5.5-Machine-Learning-Models">&#182;</a></h3><p>First, let's build a Linear Regression model using the default parameters.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Build model and fit with training data </span>
+<span class="n">lin_reg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">lin_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_prepared</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Use model to get predictions on testing set </span>
+<span class="n">y_preds</span> <span class="o">=</span> <span class="n">lin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_prepared</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Absolute Error: &#39;</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Root Mean Squared Error: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean Absolute Error:  0.35574722355154875
+Root Mean Squared Error:  0.4965957401982544
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can now take this code and turn it into a function, allowing us to test out a variety of different models.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Train and evaluate a given model, returns the trained model </span>
+
+<span class="k">def</span> <span class="nf">train_and_evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">):</span> 
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_prepared</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">y_preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_prepared</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Absolute Error: &#39;</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Root Mean Squared Error: &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">model</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's take a look at the performance for Ridge, Lasso and Elastic-Net Regression.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ridge Scores: &#39;</span><span class="p">)</span>
+<span class="n">ridge</span> <span class="o">=</span> <span class="n">train_and_evaluate_model</span><span class="p">(</span><span class="n">Ridge</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Lasso Scores: &#39;</span><span class="p">)</span>
+<span class="n">lasso</span> <span class="o">=</span> <span class="n">train_and_evaluate_model</span><span class="p">(</span><span class="n">Lasso</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Elastic Net Scores: &#39;</span><span class="p">)</span>
+<span class="n">elastic</span> <span class="o">=</span> <span class="n">train_and_evaluate_model</span><span class="p">(</span><span class="n">ElasticNet</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Ridge Scores: 
+Mean Absolute Error:  0.3557477272599804
+Root Mean Squared Error:  0.49659982922837986
+
+Lasso Scores: 
+Mean Absolute Error:  0.5504264801484526
+Root Mean Squared Error:  0.6973808774083553
+
+Elastic Net Scores: 
+Mean Absolute Error:  0.5504264801484526
+Root Mean Squared Error:  0.6973808774083553
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see that the Ridge and plain Linear Regression models perform the best, with the lowest mean absolute error and root mean squared error. The reason for this could be that the regularization parameters for the latter two models were too high. In order to improve on these results, you can look into a lot of different things like <a href='https://scikit-learn.org/stable/modules/cross_validation.html'>cross-validation</a> as well as <a href='https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html'>grid-search</a> for finding the best hyperparamters to tune your model. Additionally, you can look into other types of regression models like SVMs and Random Forests.</p>
+<p>This <a href='https://towardsdatascience.com/which-machine-learning-model-to-use-db5fdf37f3dd'>link</a> can give you a better idea of what model might suit your needs the best.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a id=6></a></p>
+<h2 id="6.-Conclusion">6. Conclusion<a class="anchor-link" href="#6.-Conclusion">&#182;</a></h2><p>In this tutorial we went over the main steps of a data science pipline:</p>
+
+<pre><code>1. Data Curation, Parsing, and Management
+2. Exploratory Data Analysis
+3. Hypothesis Testing and Machine Learning
+</code></pre>
+<p>We applied the data science pipeline to our specific study of the Airbnb listings in New York City in 2019. However these steps can be generalized to any kind of data or problem that you may be interested in.</p>
+<p>Data science is a very powerful tool that has changed the way that we understand people, businesses, and society. We can understand trends and patterns from the past and even extrapolate them to predict the future. Data science has given us a scientific and objective lense that provides insight into the world around us through data.</p>
+
+</div>
+</div>
 </div>
     </div>
   </div>
