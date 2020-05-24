@@ -1,4 +1,4 @@
-# NYC-Airbnb-Analysis-and-Price-Prediction
+# NYC Airbnb Analysis and Price Prediction
 
 [Demo!](https://raymondzouu.github.io/nyc-airbnb-analysis-and-price-prediction/)
 
